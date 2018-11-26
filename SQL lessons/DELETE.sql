@@ -1,0 +1,1 @@
+DELETE FROM maqolalar WHERE id = 3
