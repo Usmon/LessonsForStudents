@@ -1,0 +1,1 @@
+SELECT (MAX(rebate) * MIN(rebate)) AS minus_ FROM selling_sales 

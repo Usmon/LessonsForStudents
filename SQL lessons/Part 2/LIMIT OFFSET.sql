@@ -1,0 +1,1 @@
+SELECT * FROM maqolalar LIMIT 10 OFFSET 20

@@ -1,0 +1,1 @@
+SELECT AVG(rebate) FROM selling_sales

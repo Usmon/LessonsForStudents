@@ -1,0 +1,3 @@
+SELECT * FROM maqolalar 
+ORDER BY id DESC 
+LIMIT 3

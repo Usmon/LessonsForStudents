@@ -1,0 +1,1 @@
+SELECT MAX(rebate) FROM selling_sales
