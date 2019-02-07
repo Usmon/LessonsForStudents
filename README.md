@@ -1,2 +1,2 @@
 # LessonsForStudents
-Azizbek lessons
+OVO students
