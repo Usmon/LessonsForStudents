@@ -1,2 +1,2 @@
-# LessonsForStudents
+# Lessons for students
 OVO students
