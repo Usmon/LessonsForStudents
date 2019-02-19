@@ -46,7 +46,13 @@ $students = [
 
 //echo array_search('Shoxrux', $students);
 
-$myNumbers = [10, 40, 2, 9, 5];
-var_dump($myNumbers);
-sort($myNumbers);
-var_dump($myNumbers);
+//$myNumbers = [10, 40, 2, 9, 5];
+//var_dump($myNumbers);
+//sort($myNumbers);
+//var_dump($myNumbers);
+
+$myAnonim = function($arrayOne, $arrayTwo) {
+    return array_merge($arrayOne, $arrayTwo);
+};
+
+var_dump($myAnonim([4,5,6,7], [9,50,60]));
