@@ -1,6 +1,32 @@
 <?php
     include "db_connection.php";
-    $query = $connection->query('SELECT * FROM contacts ORDER BY id DESC');
+
+    $page_limit = 5;
+    if (!empty($_GET['page']))
+    {
+        $page = $_GET['page'];
+    }
+    else
+    {
+        $page = 1;
+    }
+
+    //Pagination BEGIN
+    $query = $connection->query('SELECT COUNT(*) as elements FROM contacts');
+    $count_result = $query->fetch();
+    $count = (int) $count_result['elements'];
+    if($count > $page_limit)
+    {
+        $offset = ($page - 1) * $page_limit;
+    }
+
+    $pager = ceil($count / $page_limit);
+
+    //Pagination END
+
+    $query = $connection->query(
+        'SELECT * FROM contacts ORDER BY id DESC LIMIT '.$page_limit.' OFFSET '.$offset
+    );
     $list = $query->fetchAll();
 ?>
 <html>
@@ -36,5 +62,10 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <div class="pagination">
+        <?php for ($index = 1; $index <= $pager; $index++): ?>
+            <a href="index.php?page=<?=$index?>"><?=$index?> - bet</a>
+        <?php endfor; ?>
+    </div>
 </body>
 </html>
