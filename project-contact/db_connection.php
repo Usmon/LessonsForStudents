@@ -21,4 +21,5 @@ $connection = new PDO($dsn, $db_user, $db_password);
 //    'INSERT INTO contacts (first_name, last_name, phone) VALUES (?, ?, ?)'
 //);
 //
-//$query->execute(['Maxmud', 'Shokirov', '+97979797797']);
+//for ($index = 1; $index <=50; $index++)
+//    $query->execute(['Maxmud '. $index, 'Shokirov'. $index, '+97979797797']);
