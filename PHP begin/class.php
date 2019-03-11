@@ -7,7 +7,7 @@
  */
 
 class Human {
-
+    //public / private / protected
     public $firstName;
     public $lastName;
 
@@ -20,17 +20,26 @@ class Human {
         echo self::testTwo();
     }
 
-    public static function testTwo()
+    /**
+     * Test Two function
+     * @param $argument1 string
+     * @param $count integer
+     * @return string
+     */
+    public static function testTwo($argument1, $count)
     {
-        return 1;
+        //Code
+        return $argument1;
     }
 
 }
 
 $aziz = new Human;
 $aziz->firstName = 'Aziz';
-$aziz->lastName = 'Jumanazarov';
 
+$aziz->lastName = 'Jumanazarov';
+//echo $aziz->firstName;
 //echo $aziz->getName();
 //echo gettype($aziz);
-Human::test('my data');
+//Human::test('my data');
+echo Human::testTwo('TESTing');
