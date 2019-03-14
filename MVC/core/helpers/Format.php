@@ -20,6 +20,13 @@ class Format {
         return $result;
     }
 
+    /**
+     * Truncate text method
+     * @param $text
+     * @param $count
+     * @param string $end
+     * @return string
+     */
     public static function cutText($text, $count, $end = '...') {
         return substr($text, 0, $count) . $end;
     }
