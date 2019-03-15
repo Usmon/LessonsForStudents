@@ -27,4 +27,40 @@ Class SiteController extends Controller {
         $this->render('contact');
     }
 
+    public function createNews(){
+        $title = trim(isset($_GET['title']) ? $_GET['title'] : '');
+        $body = trim(isset($_GET['body']) ? $_GET['body'] : '');
+        if (!empty($title) && !empty($body) )
+        {
+            $new = new NewsModel();
+            $new->create($title, $body);
+        }
+        else
+        {
+            echo "Bo`sh bo`lmasligi kerak!";
+        }
+
+    }
+
+    public function searchNews() {
+        $key = $_GET['key'];
+        $news = new NewsModel();
+        $items = $news->search($key);
+        var_dump($items);
+    }
+
+    public function updateNews() {
+        $id = $_GET['id'];
+        $title = trim(isset($_GET['title']) ? $_GET['title'] : '');
+        $body = trim(isset($_GET['body']) ? $_GET['body'] : '');
+        $news = new NewsModel();
+        $news->update($id, $title, $body);
+    }
+
+    public function deleteNews() {
+        $id = $_GET['id'];
+        $news = new NewsModel();
+        $news->deleteById($news->table, $id);
+    }
+
 }

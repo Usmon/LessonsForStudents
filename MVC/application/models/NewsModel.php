@@ -8,16 +8,47 @@
 
 class NewsModel extends Model {
 
-    private $table = 'news';
+    public $table = 'news';
 
+    /**
+     * Get all items
+     * @return array
+     */
     public function getAll(){
         $result = $this->query('SELECT * FROM ' . $this->table);
         return $result;
     }
 
-    public function create(){
+    /**
+     * Create news
+     * @param $title string
+     * @param $body string
+     */
+    public function create($title, $body){
+        //Insert process
         $this->query('INSERT INTO ' . $this->table . '(title, body, added_time) 
-        VALUES ("Lorem ispsum", "Full Test text", NOW())');
+        VALUES ("'.$title.'", "'.$body.'", NOW())');
+    }
+
+    /**
+     * Search method
+     * @param $key
+     * @return array
+     */
+    public function search($key) {
+        $result = $this->query('SELECT * FROM '. $this->table
+            .' WHERE title LIKE "%'.$key.'%" OR body LIKE "%'.$key.'%"');
+        return $result;
+    }
+
+    /**
+     * Update method
+     * @param $id
+     * @param $title
+     * @param $body
+     */
+    public function update($id, $title, $body) {
+        $this->query('UPDATE '.$this->table.' SET title = "'.$title.'", body = "'.$body.'" WHERE id = '.$id);
     }
 
 }

@@ -18,4 +18,8 @@ class Model {
         return $this->connection()->query($sql)->fetchAll();
     }
 
+    public function deleteById($table, $id) {
+        $this->query('DELETE FROM '.$table.' WHERE id = '.$id);
+    }
+
 }

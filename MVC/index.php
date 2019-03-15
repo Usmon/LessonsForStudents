@@ -37,3 +37,19 @@ if ($route == 'news')
 {
     $site->news();
 }
+if ($route == 'createNews')
+{
+    $site->createNews();
+}
+if ($route == 'search')
+{
+    $site->searchNews();
+}
+if ($route == 'update')
+{
+    $site->updateNews();
+}
+if ($route == 'delete')
+{
+    $site->deleteNews();
+}
