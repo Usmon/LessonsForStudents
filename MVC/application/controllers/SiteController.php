@@ -9,7 +9,14 @@
 Class SiteController extends Controller {
 
     public function home() {
-        $this->render('home');
+        //Get all items
+        $news = new NewsModel();
+        $data['list_news'] = $news->getAll();
+
+        //Begin Render
+        $this->render('_header'); // Head side
+        $this->render('home', $data); // Content
+        $this->render('_footer'); // Footer side
     }
 
     public function news() {
@@ -19,12 +26,33 @@ Class SiteController extends Controller {
     }
 
     public function about() {
-        $this->render('about');
+        $this->render('_header'); // Head side
+        $this->render('about'); // Content
+        $this->render('_footer'); // Footer side
     }
 
     public function contact() {
+        if ($_POST) {
+            $name = $_POST['Name'];
+            $email = $_POST['Email'];
+            $subject = $_POST['Subject'];
+            $message = $_POST['Message'];
+            $fullText = 'Name: '.$name;
+            $fullText .= 'Email: '.$email;
+            $fullText .= 'Message: '.$message;
+            global $params;
+            if (mail($params['adminMail'], $subject, $fullText)) {
+                header('Location: index.php?route=contact');
+            }
+            else {
+                echo 'Xatolik!';
+            }
 
+        }
+
+        $this->render('_header');
         $this->render('contact');
+        $this->render('_footer');
     }
 
     public function createNews(){

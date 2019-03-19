@@ -5,7 +5,7 @@
  * Date: 27.02.2019
  * Time: 15:35
  */
-//include 'header.php';
+//include '_header.php';
 //
 ////$_SESSION['user'] = 'Azizbek';
 ////echo $_SESSION['user'];
