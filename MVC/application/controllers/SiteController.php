@@ -14,7 +14,7 @@ Class SiteController extends Controller {
         $data['list_news'] = $news->getAll();
 
         //Begin Render
-        $this->render('_header'); // Head side
+        $this->render('_header', ['title'=>'Bosh sahifa']); // Head side
         $this->render('home', $data); // Content
         $this->render('_footer'); // Footer side
     }
@@ -26,7 +26,8 @@ Class SiteController extends Controller {
     }
 
     public function about() {
-        $this->render('_header'); // Head side
+
+        $this->render('_header', ['title'=>'Biz haqimizda']); // Head side
         $this->render('about'); // Content
         $this->render('_footer'); // Footer side
     }
@@ -50,7 +51,7 @@ Class SiteController extends Controller {
 
         }
 
-        $this->render('_header');
+        $this->render('_header', ['title'=>'Bog`lanish']);
         $this->render('contact');
         $this->render('_footer');
     }

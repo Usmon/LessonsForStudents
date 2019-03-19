@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Style Blog a Blogging Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <title><?= $data['title'] ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Style Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -86,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header-bottom">
     <div class="container">
         <div class="logo wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-            <h1><a href="index.html">STYLE BLOG</a></h1>
+            <h1><a href="index.html"><?= $data['title'] ?></a></h1>
             <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
         </div>
     </div>
