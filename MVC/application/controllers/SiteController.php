@@ -5,6 +5,8 @@
  * Date: 13.03.2019
  * Time: 20:24
  */
+use Imagine\Gd\Imagine;
+use Imagine\Image\Box;
 
 Class SiteController extends Controller {
 
@@ -90,6 +92,25 @@ Class SiteController extends Controller {
         $id = $_GET['id'];
         $news = new NewsModel();
         $news->deleteById($news->table, $id);
+    }
+
+    public  function image() {
+//        $input_image = imagecreatefromjpeg('assets/uploads/banner-1.jpg');
+//        $cropped = imagecrop($input_image, [
+//            'x' => 500,
+//            'y' => 500,
+//            'width' => 420,
+//            'height' => 420
+//        ]);
+
+//        $cropped = imagecropauto($input_image);
+//        imagejpeg($cropped, 'assets/uploads/thumb-banner-1.jpg');
+        $file = "assets/uploads/banner-1.jpg";
+        $image = new Imagine();
+        $size = new Box(600, 500);
+        $new_name = "assets/uploads/thumb-banner-1.jpg";
+//        $image->open($file)->resize($size)->save($new_name);
+        $image->open($file)->thumbnail($size)->rotate(-45)->save($new_name);
     }
 
 }

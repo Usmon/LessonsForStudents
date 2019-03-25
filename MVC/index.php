@@ -5,10 +5,11 @@
  * Date: 13.03.2019
  * Time: 20:27
  */
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 //Config
+include "vendor/autoload.php";
 include "application/config/main.php";
 //Core classes
 include "core/Model.php";
@@ -52,4 +53,8 @@ if ($route == 'update')
 if ($route == 'delete')
 {
     $site->deleteNews();
+}
+if ($route == 'image')
+{
+    $site->image();
 }
