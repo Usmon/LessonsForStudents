@@ -7,6 +7,7 @@
  */
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
+use PHPMailer\PHPMailer\PHPMailer;
 
 Class SiteController extends Controller {
 
@@ -111,6 +112,31 @@ Class SiteController extends Controller {
         $new_name = "assets/uploads/thumb-banner-1.jpg";
 //        $image->open($file)->resize($size)->save($new_name);
         $image->open($file)->thumbnail($size)->rotate(-45)->save($new_name);
+    }
+
+    public function mail() {
+        $users_email = ['example_to@gmail.com'];
+        $mail = new PHPMailer(true);
+
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'example_from@gmail.com';
+        $mail->Password   = 'password';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
+
+        $mail->setFrom('noreply@lesson.com', 'Mailer');
+
+        foreach ($users_email as $email) {
+            $mail->addAddress($email);
+        }
+
+        $mail->isHTML(true);
+        $mail->Subject = "Mavzu";
+        $mail->Body = '<div style="background: green; color: white;"><h2>Bu yerda sarlavha</h2></div> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>';
+        $mail->addAttachment('assets/images/banner-1.jpg', 'GirlName.jpg');
+        $mail->send();
     }
 
 }

@@ -58,3 +58,7 @@ if ($route == 'image')
 {
     $site->image();
 }
+if ($route == 'mail')
+{
+    $site->mail();
+}
