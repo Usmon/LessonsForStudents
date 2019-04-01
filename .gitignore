@@ -1,3 +1,4 @@
 .idea
+mvc/composer.lock
 /MVC/composer.phar
 /MVC/vendor/

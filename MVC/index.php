@@ -5,9 +5,9 @@
  * Date: 13.03.2019
  * Time: 20:27
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 //Config
 include "vendor/autoload.php";
 include "application/config/main.php";
@@ -61,4 +61,8 @@ if ($route == 'image')
 if ($route == 'mail')
 {
     $site->mail();
+}
+if ($route == 'pdf')
+{
+    $site->pdf();
 }

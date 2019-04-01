@@ -8,6 +8,7 @@
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
 use PHPMailer\PHPMailer\PHPMailer;
+use \FPDF;
 
 Class SiteController extends Controller {
 
@@ -137,6 +138,22 @@ Class SiteController extends Controller {
         $mail->Body = '<div style="background: green; color: white;"><h2>Bu yerda sarlavha</h2></div> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>';
         $mail->addAttachment('assets/images/banner-1.jpg', 'GirlName.jpg');
         $mail->send();
+    }
+
+    public function pdf()
+    {
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',16);
+        $pdf->SetTitle('Resume');
+        $pdf->Cell(400,5,'Resume');
+        $pdf->Ln(10);
+        $pdf->SetFont('Arial','',12);
+        $pdf->Image('assets/images/banner-1.jpg', 10, 20, 80, 80);
+        $pdf->Cell(80);
+        $pdf->Write(15, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+
+        $pdf->Output();
     }
 
 }
