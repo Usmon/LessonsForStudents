@@ -38,6 +38,10 @@ if ($route == 'news')
 {
     $site->news();
 }
+if ($route == 'singlepost')
+{
+    $site->newsMore();
+}
 if ($route == 'createNews')
 {
     $site->createNews();

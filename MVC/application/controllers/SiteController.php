@@ -29,6 +29,24 @@ Class SiteController extends Controller {
         $this->render('news', $data);
     }
 
+    public function newsMore()
+    {
+        $id = (int) $_GET['id'];
+        $model = new NewsModel();
+        $item  = $model->getOne($id);
+        if ($item != false)
+        {
+            $data['post'] = $item[0];
+        }
+
+
+
+        //Begin Render
+        $this->render('_header', ['title'=>$data['post']['title']]); // Head side
+        $this->render('news-more', $data); // Content
+        $this->render('_footer'); // Footer side
+    }
+
     public function about() {
 
         $this->render('_header', ['title'=>'Biz haqimizda']); // Head side

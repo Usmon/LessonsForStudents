@@ -51,4 +51,25 @@ class NewsModel extends Model {
         $this->query('UPDATE '.$this->table.' SET title = "'.$title.'", body = "'.$body.'" WHERE id = '.$id);
     }
 
+    /**
+     * Get one item
+     * @param $id integer
+     * @return bool|array
+     */
+    public function getOne($id)
+    {
+        $result = $this->query('SELECT * FROM '. $this->table .' WHERE id = '.$id);
+        if ($result)
+        {
+            $inc = 1 + (int) $result[0]['view'];
+            $increment = $this->connection()
+                        ->query('UPDATE '. $this->table . ' SET view = '.$inc. ' WHERE id = '. $id)
+                        ->execute();
+
+            return $result;
+        }
+
+        return false;
+    }
+
 }
