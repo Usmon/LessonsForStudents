@@ -37,26 +37,38 @@ Class SiteController extends Controller {
     }
 
     public function contact() {
+        $alert = null;
         if ($_POST) {
             $name = $_POST['Name'];
             $email = $_POST['Email'];
+            $phone = $_POST['phone'];
             $subject = $_POST['Subject'];
             $message = $_POST['Message'];
-            $fullText = 'Name: '.$name;
-            $fullText .= 'Email: '.$email;
-            $fullText .= 'Message: '.$message;
-            global $params;
-            if (mail($params['adminMail'], $subject, $fullText)) {
-                header('Location: index.php?route=contact');
-            }
-            else {
-                echo 'Xatolik!';
-            }
 
+            global $params;
+            $adminEmail = $params['adminMail'];
+            $mail = new PHPMailer(true);
+
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'djialhsho@gmail.com';
+            $mail->Password   = 'diljah9197';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+
+            $mail->setFrom($email, $name);
+            $mail->addAddress($adminEmail);
+            $mail->Subject = $subject;
+            $mail->Body = $message . PHP_EOL . "Telefon: " . $phone;
+            $result = $mail->send();
+            $alert = $result ? 'success' : 'error';
         }
 
         $this->render('_header', ['title'=>'Bog`lanish']);
-        $this->render('contact');
+        $this->render('contact',[
+            'alert' => $alert
+        ]);
         $this->render('_footer');
     }
 

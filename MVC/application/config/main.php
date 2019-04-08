@@ -10,5 +10,5 @@ $params = [
     'dsn'=>'mysql:host=localhost;dbname=mvc_learn',
     'username' => 'root',
     'password' => '',
-    'adminMail' => 'admin@mysite.com'
+    'adminMail' => 'usmonzaripov@gmail.com'
 ];

@@ -13,13 +13,23 @@
 
 
                 <div class="contact-grids">
-                    <div class="col-md-8 contact-grid">
+                    <?php if ($data['alert'] == 'success'): ?>
+                        <div class="alert alert-success">
+                            <i class="glyphicon glyphicon-ok-circle"></i> Xabar qabul qilindi!
+                        </div>
+                    <?php endif; ?>
 
-                        <p>Nemo enim ips voluptatem voluptas sitsper natuaut odit aut fugit consequuntur magni dolores eosqratio nevoluptatem  amet eism com odictor ut ligulate cot ameti dapibu</p>
+                    <?php if ($data['alert'] == 'error'): ?>
+                        <div class="alert alert-danger">
+                            <i class="glyphicon glyphicon-remove-circle"></i> Xatolik yuz berdi!
+                        </div>
+                    <?php endif; ?>
+                    <div class="col-md-8 contact-grid">
                         <form method="post">
                             <input type="text" name="Name" value="Name " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
                             <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
                             <input type="text" name="Subject" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
+                            <input style="margin-top: 15px" type="text" name="phone" placeholder="Telefon..." required="">
                             <textarea type="text" name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Special Instruction/Comments...';}" required="">Special Instruction/Comments...</textarea>
                             <input type="submit" value="Send">
                         </form>
