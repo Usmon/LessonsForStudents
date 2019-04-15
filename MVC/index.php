@@ -86,3 +86,19 @@ if ($route == 'admin/index')
 {
     $admin->index();
 }
+if ($route == 'admin/news-list')
+{
+    $admin->newsList();
+}
+if ($route == 'admin/news-create')
+{
+    $admin->newsCreate();
+}
+if ($route == 'admin/news-edit')
+{
+    $admin->newsEdit();
+}
+if ($route == 'admin/news-delete')
+{
+    $admin->newsDelete();
+}

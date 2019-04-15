@@ -72,4 +72,13 @@ class NewsModel extends Model {
         return false;
     }
 
+    /**
+     * Delete news
+     * @param $id
+     */
+    public function delete($id)
+    {
+        $this->deleteById($this->table, $id);
+    }
+
 }
