@@ -30,7 +30,7 @@ $varName = function ($a){
     return $a+5;
 };
 
-echo $varName(8);
+//echo $varName(8);
 
 //echo orqagaQaytish();
 
@@ -38,4 +38,37 @@ echo $varName(8);
 
 //echo colored($name);
 
+/*
+ * My Function - sample
+ */
+function myFunc() {
+    return 90+2;
+}
 
+/**
+ * Add function
+ * @param integer $a
+ * @param integer $b
+ * @return mixed
+ */
+function add($a, $b)
+{
+    $var = $a+$b;
+    return $var;
+}
+
+$myVar = myFunc();
+//echo $myVar;
+//echo add(4,5);
+//echo colored('Sarvar');
+
+$myArray = [1,3,4,5,6];
+//echo count($myArray);
+//echo count('myString');
+//echo strlen('myString');
+//var_dump($myArray);
+$name = 'Sarvar Ganjaev';
+$new_name = str_replace('Sarvar', '<span style="color:red">Sarvar</span>', $name);
+//echo strtoupper($name);
+//echo strtolower($name);
+//echo strpos($name, 'Ganjaev');
